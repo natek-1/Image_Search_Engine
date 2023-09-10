@@ -164,5 +164,8 @@ cython_debug/
 tiny_imagenet/
 tiny-imagenet-200/
 
+# artifacts
+artifacts/
+
 # mac file
  .DS_Store

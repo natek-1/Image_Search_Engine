@@ -11,6 +11,6 @@ python-box==7.1.1
 PyYAML==6.0.1
 streamlit==1.26.0
 notebook==7.0.3
-
+kaggle==1.5.16
 
 -e .

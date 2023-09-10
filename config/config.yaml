@@ -1,0 +1,8 @@
+artifacts_root: artifacts
+
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  command: kaggle datasets download -d xiataokang/tinyimagenettorch
+  local_data_file: artifacts/data_ingestion/tinyimagenettorch.zip
+  unzip_dir: artifacts/data_ingestion
