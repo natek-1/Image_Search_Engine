@@ -162,3 +162,7 @@ cython_debug/
 
 # dataset
 tiny_imagenet/
+tiny-imagenet-200/
+
+# mac file
+ .DS_Store
