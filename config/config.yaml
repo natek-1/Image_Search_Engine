@@ -6,3 +6,9 @@ data_ingestion:
   command: kaggle datasets download -d xiataokang/tinyimagenettorch
   local_data_file: artifacts/data_ingestion/tinyimagenettorch.zip
   unzip_dir: artifacts/data_ingestion
+
+data_cleaning:
+  remove_folder_dir: artifacts/data_ingestion/tiny-imagenet-200/test
+  remove_train_file_dir: artifacts/data_ingestion/tiny-imagenet-200/train
+  remove_file_extention: txt
+  remove_zip_dir: artifacts/data_ingestion/tinyimagenettorch.zip
