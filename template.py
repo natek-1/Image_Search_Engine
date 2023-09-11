@@ -9,7 +9,7 @@ project_name = "imageSearchEngine"
 
 list_of_files = [
     f"src/{project_name}/__init__.py",
-    f"src/{project_name}/conponents/__init__.py",
+    f"src/{project_name}/components/__init__.py",
     f"src/{project_name}/utils/__init__.py",
     f"src/{project_name}/utils/file_helper.py",
     f"src/{project_name}/logging/__init__.py",
