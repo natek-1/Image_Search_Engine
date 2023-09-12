@@ -12,3 +12,11 @@ data_cleaning:
   remove_train_file_dir: artifacts/data_ingestion/tiny-imagenet-200/train
   remove_file_extention: txt
   remove_zip_dir: artifacts/data_ingestion/tinyimagenettorch.zip
+
+feature_representation:
+  root_dir: artifacts/embeddings
+  data_path: artifacts/data_ingestion/tiny-imagenet-200/train
+  feature_dir: artifacts/embeddings/embedding.pkl
+  image_path_list_dir: artifacts/embeddings/path_list.pkl
+  image_labels: artifacts/embeddings/labels.pkl
+
