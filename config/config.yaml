@@ -20,3 +20,9 @@ feature_representation:
   image_path_list_dir: artifacts/embeddings/path_list.pkl
   image_labels: artifacts/embeddings/labels.pkl
 
+model_trainer:
+  root_dir: artifacts/model
+  feature_dir: artifacts/embeddings/embedding.pkl
+  image_path_list_dir: artifacts/embeddings/path_list.pkl
+  model_path: artifacts/model/image_search_engine_classifier.pkl
+

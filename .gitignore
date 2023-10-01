@@ -167,5 +167,8 @@ tiny-imagenet-200/
 # artifacts
 artifacts/
 
+#logs
+*.log
+
 # mac file
  .DS_Store
