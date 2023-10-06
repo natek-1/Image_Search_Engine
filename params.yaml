@@ -7,3 +7,11 @@ feature_representation:
 model_trainer:
   n_jobs: -1,
   n_neighbors: 200
+
+model_evaluation:
+  n_neighbors: 20
+  return_distance: False
+  include_top: False
+  pooling: avg
+  input_shape: [224, 224, 3]
+  target_size: [224, 224]

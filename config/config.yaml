@@ -26,3 +26,12 @@ model_trainer:
   image_path_list_dir: artifacts/embeddings/path_list.pkl
   model_path: artifacts/model/image_search_engine_classifier.pkl
 
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  model_path: artifacts/model/image_search_engine_classifier.pkl
+  image_labels_path: artifacts/embeddings/labels.pkl
+  image_path_list_dir: artifacts/embeddings/path_list.pkl
+  val_path: artifacts/data_ingestion/tiny-imagenet-200/val
+  val_feature: artifacts/embeddings/val_embedding.pkl
+
+
