@@ -34,4 +34,7 @@ model_evaluation:
   val_path: artifacts/data_ingestion/tiny-imagenet-200/val
   val_feature: artifacts/embeddings/val_embedding.pkl
 
-
+prediction:
+  root_dir: artifacts/predictions
+  model_path: artifacts/model/image_search_engine_classifier.pkl
+  image_path_list_dir: artifacts/embeddings/path_list.pkl

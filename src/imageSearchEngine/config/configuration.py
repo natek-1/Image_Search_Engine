@@ -1,7 +1,7 @@
 from ensure import ensure_annotations
 from imageSearchEngine.constants import *
 from imageSearchEngine.utils.file_helpers import read_yaml, create_directories
-from imageSearchEngine.entity import DataIngestionConfig, DataCleaningConfig, FeatureRetrivalConfig, ModelTrainerConfig, ModelEvaluationConfig
+from imageSearchEngine.entity import DataIngestionConfig, DataCleaningConfig, FeatureRetrivalConfig, ModelTrainerConfig, ModelEvaluationConfig, PredictionConfig
 
 class ConfigurationManager:
     @ensure_annotations
@@ -119,3 +119,22 @@ class ConfigurationManager:
             target_size= params.target_size
         )
         return model_evaluation_config
+
+    @ensure_annotations
+    def get_prediction_config(self) -> PredictionConfig:
+        config = self.config.prediction
+        params = self.params.prediction
+        create_directories([config.root_dir])
+
+        prediction_config = PredictionConfig(
+            model_path= config.model_path,
+            image_path_list_dir = config.image_path_list_dir,
+            n_neighbors=params.n_neighbors,
+            return_distance= params.return_distance,
+            include_top= params.include_top,
+            pooling = params.pooling,
+            input_shape= params.input_shape,
+            target_size= params.target_size
+        )
+
+        return prediction_config

@@ -50,3 +50,14 @@ class ModelEvaluationConfig:
     pooling: str
     input_shape: List
     target_size: List
+
+@dataclass(frozen=True)
+class PredictionConfig:
+    model_path: Path
+    image_path_list_dir: Path
+    n_neighbors: int
+    return_distance: bool
+    include_top: bool
+    pooling: str
+    input_shape: List
+    target_size: List

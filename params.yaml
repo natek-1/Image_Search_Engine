@@ -15,3 +15,12 @@ model_evaluation:
   pooling: avg
   input_shape: [224, 224, 3]
   target_size: [224, 224]
+
+prediction:
+  n_neighbors: 20
+  return_distance: False
+  include_top: False
+  pooling: avg
+  input_shape: [224, 224, 3]
+  target_size: [224, 224]
+
