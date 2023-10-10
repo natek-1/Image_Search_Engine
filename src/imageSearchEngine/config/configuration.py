@@ -1,7 +1,7 @@
 from ensure import ensure_annotations
 from imageSearchEngine.constants import *
 from imageSearchEngine.utils.file_helpers import read_yaml, create_directories
-from imageSearchEngine.entity import DataIngestionConfig, DataCleaningConfig, FeatureRetrivalConfig, ModelTrainerConfig
+from imageSearchEngine.entity import DataIngestionConfig, DataCleaningConfig, FeatureRetrivalConfig, ModelTrainerConfig, ModelEvaluationConfig
 
 class ConfigurationManager:
     @ensure_annotations
@@ -94,3 +94,28 @@ class ConfigurationManager:
         )
 
         return model_trainer_config
+
+    @ensure_annotations
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        '''
+        Creates and returns the configuration to evaluate the model on the test dataset
+        the object contains the attritubes needed properly see the model score
+        '''
+        config = self.config.model_evaluation
+        params = self.params.model_evaluation
+        create_directories([config.root_dir])
+
+        model_evaluation_config = ModelEvaluationConfig(
+            model_path= config.model_path,
+            image_labels_path= config.image_labels_path,
+            image_path_list_dir = config.image_path_list_dir,
+            val_feature= config.val_feature,
+            val_path=config.val_path,
+            n_neighbors=params.n_neighbors,
+            return_distance= params.return_distance,
+            include_top= params.include_top,
+            pooling = params.pooling,
+            input_shape= params.input_shape,
+            target_size= params.target_size
+        )
+        return model_evaluation_config

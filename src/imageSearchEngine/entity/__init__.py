@@ -36,3 +36,17 @@ class ModelTrainerConfig:
     image_path_list_dir: Path
     n_jobs: int
     n_neighbors: int
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    model_path: Path
+    image_labels_path: Path
+    image_path_list_dir: Path
+    val_path: Path
+    val_feature: Path
+    n_neighbors: int
+    return_distance: bool
+    include_top: bool
+    pooling: str
+    input_shape: List
+    target_size: List
