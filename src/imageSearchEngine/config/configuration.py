@@ -1,7 +1,7 @@
 from ensure import ensure_annotations
 from imageSearchEngine.constants import *
 from imageSearchEngine.utils.file_helpers import read_yaml, create_directories
-from imageSearchEngine.entity import DataIngestionConfig, DataCleaningConfig
+from imageSearchEngine.entity import DataIngestionConfig, DataCleaningConfig, FeatureRetrivalConfig
 
 class ConfigurationManager:
     @ensure_annotations
@@ -11,7 +11,7 @@ class ConfigurationManager:
         params_filepath:Path = PARAMS_FILE_PATH):
 
         self.config = read_yaml(config_filepath)
-        #self.params = read_yaml(params_filepath)
+        self.params = read_yaml(params_filepath)
 
         create_directories([self.config.artifacts_root])
 
@@ -48,3 +48,24 @@ class ConfigurationManager:
             remove_zip_dir=config.remove_zip_dir
         )
         return data_cleaning_config
+    
+
+    @ensure_annotations
+    def get_feature_retrival_config(self) -> FeatureRetrivalConfig:
+        config = self.config.feature_representation
+        params = self.params.feature_representation
+        create_directories([config.root_dir])
+
+        feature_retrival_config = FeatureRetrivalConfig(
+            root_dir = config.root_dir,
+            data_path = config.data_path,
+            feature_dir = config.feature_dir,
+            image_path_list_dir= config.image_path_list_dir,
+            image_labels= config.image_labels,
+            include_top= params.include_top,
+            pooling = params.pooling,
+            input_shape= params.input_shape,
+            target_size= params.target_size
+
+        )
+        return feature_retrival_config

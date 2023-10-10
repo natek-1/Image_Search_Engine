@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
+from typing import List
 
 @dataclass(frozen=True)
 class DataIngestionConfig:
@@ -14,3 +15,15 @@ class DataCleaningConfig:
     remove_train_file_dir: Path
     remove_file_extention: str
     remove_zip_dir: Path
+
+@dataclass(frozen=True)
+class FeatureRetrivalConfig:
+    root_dir: Path
+    data_path: Path
+    feature_dir: Path
+    image_path_list_dir: Path
+    image_labels: Path
+    include_top: bool
+    pooling: str
+    input_shape: List
+    target_size: List
