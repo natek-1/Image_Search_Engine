@@ -27,3 +27,12 @@ class FeatureRetrivalConfig:
     pooling: str
     input_shape: List
     target_size: List
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    model_path: Path
+    feature_dir: Path
+    image_path_list_dir: Path
+    n_jobs: int
+    n_neighbors: int

@@ -1,20 +1,19 @@
 from imageSearchEngine.config.configuration import ConfigurationManager
-from imageSearchEngine.components.feature_retrival import FeatureRetrival
+from imageSearchEngine.components.model_trainer import ModelTrainer
 from imageSearchEngine.logging.logger import log
 from imageSearchEngine.exception import  CustomException
 
-class FeatureRetrivalTrainingPipeline:
+
+class ModelTrainingTrainingPipeline:
     def __init__(self):
         pass
 
     def main(self):
         try:
             config = ConfigurationManager()
-            feature_retrival_config = config.get_feature_retrival_config()
-            feature_retrival = FeatureRetrival(config=feature_retrival_config)
-            feature_retrival.retrive_labels()
-            feature_retrival.retrive_embedding()
+            model_trainer_config = config.get_model_trainer_config()
+            model_trainer = ModelTrainer(config= model_trainer_config)
+            model_trainer.train_model()
         except Exception as e:
             raise CustomException(e)
-
 

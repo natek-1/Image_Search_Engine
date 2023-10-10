@@ -1,7 +1,7 @@
 from ensure import ensure_annotations
 from imageSearchEngine.constants import *
 from imageSearchEngine.utils.file_helpers import read_yaml, create_directories
-from imageSearchEngine.entity import DataIngestionConfig, DataCleaningConfig, FeatureRetrivalConfig
+from imageSearchEngine.entity import DataIngestionConfig, DataCleaningConfig, FeatureRetrivalConfig, ModelTrainerConfig
 
 class ConfigurationManager:
     @ensure_annotations
@@ -52,6 +52,10 @@ class ConfigurationManager:
 
     @ensure_annotations
     def get_feature_retrival_config(self) -> FeatureRetrivalConfig:
+        '''
+        Creates and returns the configuration to make the feature representation
+        the object contains the attritubes needed for the retrive those features from the images portion of our project
+        '''
         config = self.config.feature_representation
         params = self.params.feature_representation
         create_directories([config.root_dir])
@@ -69,3 +73,24 @@ class ConfigurationManager:
 
         )
         return feature_retrival_config
+    
+    @ensure_annotations
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        '''
+        Creates and returns the configuration to train the model
+        the object contains the attritubes needed properly train the mode
+        '''
+        config = self.config.model_trainer
+        params = self.params.model_trainer
+        create_directories([config.root_dir])
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            model_path=config.model_path,
+            n_jobs=params.n_jobs,
+            n_neighbors=params.n_neighbors,
+            feature_dir = config.feature_dir,
+            image_path_list_dir= config.image_path_list_dir
+
+        )
+
+        return model_trainer_config
